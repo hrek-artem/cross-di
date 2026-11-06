@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Dynamic Island</title><link rel="stylesheet" href="popup.css"></head>
+<body><main>
+  <h1>Dynamic Island</h1>
+  <p>Connects automatically when the app is installed.</p>
+  <div class="actions"><button id="connect" type="button">Reconnect</button><button id="disconnect" type="button">Disconnect</button></div>
+  <p id="status" role="status"></p>
+  <h2>Live video</h2>
+  <p>The video player connects automatically. The browser tab and screen are never captured.</p>
+  <label class="video-toggle"><input id="auto-video" type="checkbox" checked> Automatic video</label>
+  <div class="actions"><button id="retry-video" type="button">Retry video</button></div>
+  <p id="video-status" role="status"></p>
+  <small>Protected players may share artwork only. Video stays on this computer; sound plays in the browser.</small>
+</main><script src="popup.js"></script></body></html>

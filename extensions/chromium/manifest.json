@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Cross Dynamic Island",
+  "version": "0.4.3",
+  "description": "Connect browser media to your local Cross Dynamic Island app.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "nativeMessaging",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Connect Dynamic Island",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "video-source.js",
+        "soundcloud.js",
+        "spotify.js",
+        "player.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "soundcloud.js",
+        "spotify.js",
+        "dom-player.js",
+        "relay.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu2WKsnCpJzN2PUh8V3lDxqbYD651gbVkolohsQ5PEXG3YMkXf6TjCHxbvahb42OVQftJZNLRh36EQGdV1CKOEb+nuo7Wa0mqfOw9ekA7UuGGzoV1EEXojikigdvK08TTmHgnq1YeM/8QVekAho/PQB7iYrXW1Zy3D9TQHkEfrUmrokfmJttBjd0JfjlZ66xA1pRAntMA6S1x81NPFYj+DCa8Drjg1Z68j5wKlfmUYCCsm7KSw71UwK3cCtxPXCNZwqv+iovp8HoHqPhfq3SUExvrBkg1XMFlMqOKP2v5jWb7erf78jMHNLQ+aw14W4ln66JP/8Btg7GrjwPtBm/JrwIDAQAB"
+}
